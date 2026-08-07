@@ -13,3 +13,12 @@ Das System berechnet die Ausstände von Nutzern über MySQL und generiert person
 - 🔍 **Schuldenprüfung:** Automatische Berechnung von Rückständen mittels SQL-Abfrage (`SUM`).
 - 🤖 **KI-Assistent:** Generierung von personalisierten E-Mails auf Deutsch via Gemini API.
 - 👤 **Registrierung:** Anlegen neuer Kunden mit Validierung der E-Mail-Eindeutigkeit.
+
+---
+
+## 🚀 Installation & Start
+
+1. **Repository klonen:**
+   ```bash
+   git clone [https://github.com/moroz1983852-boop/ai-energy-billing.git](https://github.com/moroz1983852-boop/ai-energy-billing.git)
+   cd ai-energy-billing
