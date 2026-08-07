@@ -1,9 +1,9 @@
-async function askAssistant() {
-    const email = document.getElementById("emailInput").value;
-    const responseBox = document.getElementById("responseBox");
+async function checkStatus() {
+    const email = document.getElementById("search-email").value;
+    const responseBox = document.getElementById("status-result");
 
     if (!email) {
-        responseBox.innerText = "Bitte geben Sie eine E-Mail-Addresse ein.";
+        responseBox.innerText = "Bitte geben Sie eine E-Mail-Adresse ein.";
         return;
     }
 
@@ -14,7 +14,7 @@ async function askAssistant() {
         const data = await response.json();
 
         if (data.error) {
-            responseBox.innerText = data.error
+            responseBox.innerText = data.error;
         } else {
             responseBox.innerText = data.assistant_response;
         }
@@ -23,17 +23,17 @@ async function askAssistant() {
     }
 }
 
-async function registerCustomer() {
-    const name = document.getElementById("regName").value;
-    const email = document.getElementById("regEmail").value;
-    const responseBox = document.getElementById("regResponseBox");
+async function registerUser() {
+    const name = document.getElementById("reg-name").value;
+    const email = document.getElementById("reg-email").value;
+    const responseBox = document.getElementById("reg-result");
 
     if (!name || !email) {
-        responseBox.innerText = "Bitte füllen Sie alle Felder aus."
+        responseBox.innerText = "Bitte füllen Sie alle Felder aus.";
         return;
     }
 
-    responseBox.innerText = "Wird geladen..."
+    responseBox.innerText = "Wird geladen...";
 
     try {
         const response = await fetch("/add-customer", {
@@ -41,19 +41,19 @@ async function registerCustomer() {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({name: name, email: email})
+            body: JSON.stringify({ name: name, email: email })
         });
 
         const data = await response.json();
 
         if (data.error) {
             responseBox.innerText = data.error;
-            responseBox.style.color = "ef4444";
+            responseBox.style.color = "#ef4444";
         } else {
-            responseBox.innerText = data.success;
-            responseBox.style.color = "10b981";
-            document.getElementById("regName").value = "";
-            document.getElementById("regEmail").value = "";
+            responseBox.innerText = data.message || data.success || "Kunde erfolgreich registriert!";
+            responseBox.style.color = "#10b981";
+            document.getElementById("reg-name").value = "";
+            document.getElementById("reg-email").value = "";
         }
     } catch (error) {
         responseBox.innerText = "Fehler bei der Verbindung zum Server.";

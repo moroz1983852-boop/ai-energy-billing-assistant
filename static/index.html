@@ -3,31 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Energy Assistant</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <title>AI Energy Billing Assistant</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="chat-container">
-    <h2></h2>
-    <div class="input-group">
-        <input type="email" id="emailInput" placeholder="vova@energy-billing.de" value="vova@energy-billing.de">
-        <button onclick="askAssistant()">Fragen</button>
+
+    <div class="dashboard-container">
+
+        <div class="card">
+            <h2>🔍 Kundenstatus & Schulden prüfen</h2>
+            <div class="form-group">
+                <div class="input-row">
+                    <input type="email" id="search-email" placeholder="E-Mail-Adresse des Kunden eingeben...">
+                    <button class="btn-primary" onclick="checkStatus()">Abfragen</button>
+                </div>
+            </div>
+            <div id="status-result" class="info-box">
+                Geben Sie eine E-Mail-Adresse ein, um den aktuellen Kontostand und KI-Benachrichtigungen zu prüfen.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>👤 Neuer Kunde registrieren</h2>
+            <div class="form-group">
+                <div class="input-row">
+                    <input type="text" id="reg-name" placeholder="Name (z.B. Max)">
+                    <input type="email" id="reg-email" placeholder="E-Mail (z.B. max@energie.de)">
+                    <button class="btn-success" onclick="registerUser()">Registrieren</button>
+                </div>
+            </div>
+            <div id="reg-result" class="info-box">
+                Geben Sie die Kundendaten ein, um einen neuen Benutzer im System anzulegen.
+            </div>
+        </div>
+
     </div>
-    <div class="response-box" id="responseBox">
-        Geben Sie Ihre E-Mail-Addresse ein, um den Status Ihres Kontos zu prüfen
-    </div>
-</div>
-<div class="chat-container" style="margin-top: 20px;">
-    <h2>👤Neuer Kunde registrieren</h2>
-    <div class="input-group">
-        <input type="text" id="regName" placeholder="Name (z.B. Max)">
-        <input type="email" id="regEmail" placeholder="E-Mail (z.B. max@energy.de)">
-        <button onclick="registerCustomer()" style="background: #10b981;">Registrieren</button>
-    </div>
-    <div class="response-box" id="regResponseBox" style="border-left-color: #10b981;">
-        Geben Sie die Daten ein, um einen neuen Kunden anzulegen.
-    </div>
-</div>
-<script src="script.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
